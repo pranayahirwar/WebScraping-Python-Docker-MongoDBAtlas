@@ -1,0 +1,137 @@
+version: '3'
+
+services:
+  selenium-hub:
+    image: selenium/hub
+    ports:
+      - 4442-4444:4442-4444
+    networks:
+      grid-network:
+        ipv4_address: 172.40.0.2
+
+  selenium-chrome-node1:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+
+  selenium-chrome-node2:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+
+  selenium-chrome-node3:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+
+  selenium-chrome-node4:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+
+  selenium-chrome-node5:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+  
+  selenium-chrome-node6:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+  
+  selenium-chrome-node7:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+  
+  selenium-chrome-node8:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+  
+  selenium-chrome-node9:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+
+  selenium-chrome-node10:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    shm_size: "2g"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - grid-network
+
+networks:
+  grid-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.40.0.0/16
